@@ -1,0 +1,39 @@
+name: Run Preprocessing Automatically
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-preprocessing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13.3'
+
+      - name: Install Dependencies
+        run: |
+          pip install pandas scikit-learn
+          pip install matplotlib
+          pip install seaborn
+          pip install scikit-learn
+
+      - name: Run Preprocessing Script
+        run: |
+          python preprocessing/automate_Ezraliano.py
+
+      - name: Commit and Push Processed File
+        run: |
+          git config --local user.email "322010018@student.machung.ac.id"
+          git config --local user.name "Ezraliano"
+          git add preprocessing/dataset_preprocessed.csv
+          git commit -m "Update preprocessed dataset" || echo "No changes to commit"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
