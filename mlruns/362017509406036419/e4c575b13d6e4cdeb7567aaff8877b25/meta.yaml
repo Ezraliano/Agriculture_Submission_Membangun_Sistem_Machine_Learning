@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/krisn/Agriculture_Submission_Membangun_Machine_Learning/mlruns/362017509406036419/e4c575b13d6e4cdeb7567aaff8877b25/artifacts
+end_time: 1747910772375
+entry_point_name: ''
+experiment_id: '362017509406036419'
+lifecycle_stage: active
+run_id: e4c575b13d6e4cdeb7567aaff8877b25
+run_name: respected-zebra-744
+run_uuid: e4c575b13d6e4cdeb7567aaff8877b25
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747910763620
+status: 3
+tags: []
+user_id: krisn

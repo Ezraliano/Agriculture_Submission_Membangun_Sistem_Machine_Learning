@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/krisn/Agriculture_Submission_Membangun_Machine_Learning/mlruns/362017509406036419/2ebb38c903734812ae60d9877c77949f/artifacts
+end_time: 1747910635389
+entry_point_name: ''
+experiment_id: '362017509406036419'
+lifecycle_stage: active
+run_id: 2ebb38c903734812ae60d9877c77949f
+run_name: bittersweet-mule-486
+run_uuid: 2ebb38c903734812ae60d9877c77949f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747910635294
+status: 4
+tags: []
+user_id: krisn

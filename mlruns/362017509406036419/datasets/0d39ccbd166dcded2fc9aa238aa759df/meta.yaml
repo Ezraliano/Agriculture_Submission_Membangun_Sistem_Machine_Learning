@@ -1,0 +1,11 @@
+digest: 0e4d50ec
+name: dataset
+profile: '{"num_rows": 440, "num_elements": 3080}'
+schema: '{"mlflow_colspec": [{"type": "long", "name": "N", "required": true}, {"type":
+  "long", "name": "P", "required": true}, {"type": "long", "name": "K", "required":
+  true}, {"type": "double", "name": "temperature", "required": true}, {"type": "double",
+  "name": "humidity", "required": true}, {"type": "double", "name": "ph", "required":
+  true}, {"type": "double", "name": "rainfall", "required": true}]}'
+source: '{"tags": {"mlflow.user": "krisn", "mlflow.source.name": "c:/Users/krisn/Agriculture_Submission_Membangun_Machine_Learning/Eksperimen_SML_Ezraliano/Membangun_model/modelling.py",
+  "mlflow.source.type": "LOCAL", "mlflow.source.git.commit": "6b94b305b53129f150613f39f749080bc1a59f1a"}}'
+source_type: code
