@@ -1,0 +1,9 @@
+name: crop-recommendation-project
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      data_path: {type: str, default: "./Crop_recommendation.csv"}
+    command: "python modelling.py"

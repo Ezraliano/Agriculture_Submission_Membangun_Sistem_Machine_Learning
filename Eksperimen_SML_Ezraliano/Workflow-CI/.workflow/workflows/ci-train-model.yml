@@ -1,0 +1,49 @@
+name: CI Train Model
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  train-model:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13.3'
+
+      - name: Install Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: crop-recommendation-env
+          conda-config-matrix: |
+            {
+              "CONDA_CHANNELS": "defaults",
+              "CONDA_DEPS": "pip python=3.13.3",
+              "PIP_DEPS": "mlflow scikit-learn pandas numpy dagshub"
+            }
+
+      - name: Install Dependencies from conda.yaml
+        run: |
+          conda env update --name crop-recommendation-env --file MLProject/conda.yaml --prune
+
+      - name: Activate Environment and Run MLflow
+        shell: bash -l {0}
+        run: |
+          cd MLProject
+          mlflow run . --no-conda
+
+      - name: Commit and Push Artefak Model
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add MLProject/logistic_regression_model
+          git commit -m "Add new model artefact" || echo "No changes to commit"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
