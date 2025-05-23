@@ -4,7 +4,7 @@ import pandas as pd
 import time
 
 app = Flask(__name__)
-model = mlflow.sklearn.load_model("model/best_logistic_regression_model")
+model = mlflow.sklearn.load_model("./best_logistic_regression_model")
 
 # Metrik latency
 @app.before_request

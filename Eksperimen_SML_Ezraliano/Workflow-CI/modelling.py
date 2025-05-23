@@ -14,7 +14,10 @@ os.environ["MLFLOW_TRACKING_PASSWORD"] = "eb75b25073f06d07c77a57aee65dd85f94545a
 mlflow.set_tracking_uri(os.environ["MLFLOW_TRACKING_URI"])
 
 # Load dataset
-df = pd.read_csv("Crop_recommendation.csv")
+df_path = os.path.abspath("Eksperimen_SML_Ezraliano/dataset_raw/Crop_recommendation.csv")
+df = pd.read_csv(df_path)
+
+# Pisahkan fitur dan target
 X = df.drop("label", axis=1)
 y = df["label"]
 
@@ -29,7 +32,7 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 acc = accuracy_score(y_test, y_pred)
 
-# Start run
+# Start run MLflow
 with mlflow.start_run():
     mlflow.log_metric("Accuracy", acc)
     mlflow.log_params(model.get_params())
